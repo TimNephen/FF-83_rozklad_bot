@@ -80,9 +80,9 @@ def func5(message):
 
 @bot.message_handler(regexp = "П\'ятниця")
 def func6(message):
-    bot.send_message(message.chat.id, """1)[1]Введення в спеціальність пр.112-7
+    bot.send_message(message.chat.id, """2)[1]Введення в спеціальність пр.112-7
 [2]Механіка лекц. 112-7
-2)[1]Українська мова лекц. 107-7
+3)[1]Українська мова лекц. 107-7
 [2]Введення в спеціальність лекц.205-11""")
 
 @bot.message_handler(regexp = "Список групи")
