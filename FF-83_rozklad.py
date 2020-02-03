@@ -68,12 +68,6 @@ def repeat_all_messages(message):
     markup.add(btn_my_site1)
     bot.send_message(message.chat.id, "Посилання:", reply_markup = markup)
 
-@bot.message_handler(regexp = "Оголошення")
-def repeat_all_messages(message):
-    sheet = google()
-    markup = types.InlineKeyboardMarkup()
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[7]))
-
 
 @bot.message_handler(regexp = "Домашнє завдання")
 def func(message):
