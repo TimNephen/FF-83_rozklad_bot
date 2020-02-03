@@ -6,12 +6,6 @@ import datetime
 
 bot = t.TeleBot("839974408:AAHhGvFEiWVnUh3Ujr7LHAvo7JnWxq3zDEE")
 
-def google():
-    scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope )
-    client = gspread.authorize(creds)
-    return client.open("Домашка").sheet1
-
 @bot.message_handler(commands=["rozklad", "start"])
 def repeat_all_messages(message):
     markup = types.ReplyKeyboardMarkup()
@@ -88,21 +82,6 @@ def func(message):
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
     print("d")
 
-#Домашка
-
-@bot.message_handler(regexp = "Дифрівняння")
-def func(message):
-    sheet = google()
-    markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
-    markup.add(btn_my_site)
-    markup.add(btn_my_site2)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[3]), reply_markup = markup)
-
-#Домашка
-
-
 @bot.message_handler(regexp = "Розклад")
 def func(message):
     markup1 = types.ReplyKeyboardMarkup()
@@ -123,159 +102,6 @@ def func(message):
 
 
 
-
-@bot.message_handler(regexp = "Викладачі")
-def prepody(message):
-    markup = types.InlineKeyboardMarkup()
-    btn_my_site1= types.InlineKeyboardButton(text='Гільчук А.В.', callback_data="G")
-    btn_my_site= types.InlineKeyboardButton(text='Кравцов О.В.', callback_data="Kr")
-    btn_my_site2= types.InlineKeyboardButton(text='Наказной П.О.', callback_data="Na")
-    btn_my_site3= types.InlineKeyboardButton(text='Парновський С.Л.', callback_data="Pa")
-    btn_my_site4= types.InlineKeyboardButton(text='Пономаренко С.М.', callback_data="Po")
-    btn_my_site5= types.InlineKeyboardButton(text='Рибак О.В.', callback_data="Ry")
-    btn_my_site6= types.InlineKeyboardButton(text='Рябов Г.В.', callback_data="Ra")
-    btn_my_site7= types.InlineKeyboardButton(text='Чугай О.Ю.', callback_data="C")
-    btn_my_site8= types.InlineKeyboardButton(text='Мулярчук М.А.', callback_data="M")
-    markup.add(btn_my_site1, btn_my_site)
-    markup.add(btn_my_site8, btn_my_site2)
-    markup.add(btn_my_site3, btn_my_site4)
-    markup.add(btn_my_site5, btn_my_site6)
-    markup.add(btn_my_site7)
-    bot.send_message(message.chat.id, "Виберіть викладача: " , reply_markup = markup)
-
-@bot.callback_query_handler(func=lambda call: True)
-def prepody(call):
-    if call.data == "G":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoG")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Гільчук Андрій Володимирович
-Викладає: Термодинаміка газового потоку/лекція""", reply_markup = markup)
-    elif call.data == "Kr":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoKr")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Кравцов Олег Васильович
-Викладає: Класична механіка/лекція""", reply_markup = markup)
-    elif call.data == "M":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoM")
-        markup.add(btn_my_site1)
-        markup.add(btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Мулярчук Марія Андріївна
-Викладає: Термодинаміка газового потоку/практика""", reply_markup = markup)
-    elif call.data == "Na":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoNa")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Наказной Павло Олександрович
-Викладає: Диференціальні рівняння/практика
-Класична механіка/практика
-Тензорний аналіз/лекція""", reply_markup = markup)
-    elif call.data == "Pa":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoPa")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Парновський Сергій Людомирович
-Викладає: Електрика та магнетизм/лекція""", reply_markup = markup)
-    elif call.data == "Po":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoPo")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Пономаренко Сергій Миколайович
-Викладає: Електрика та магнетизм/практика""", reply_markup = markup)
-    elif call.data == "Ry":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoRy")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Рибак Олександр Владиславович
-Викладає: Математичний аналіз/лекція""", reply_markup = markup)
-    elif call.data == "Ra":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoRa")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Рябов Георгій Валентинович
-Викладає: Диференціальні рівняння/лекція""", reply_markup = markup)
-    elif call.data == "C":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Назад', callback_data="back")
-        btn_my_site2= types.InlineKeyboardButton(text='Фото', callback_data="photoC")
-        markup.add(btn_my_site1, btn_my_site2)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="""Чугай Оксана Юріївна
-Викладає: Англійська мова/практика""", reply_markup = markup)
-
-    elif call.data == "photoG":
-            f = open("Гільчук.jpg"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoKr":
-            f = open("Кравцов.png"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoM":
-            f = open("Мулярчук.jpg"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoNa":
-            f = open("Наказной.png"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoPa":
-                f = open("Парновський.jpg"   , 'rb')
-                bot.send_photo(call.message.chat.id, f)
-                f.close()
-    elif call.data == "photoPo":
-            f = open("Пономаренко.jpg"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoRy":
-            f = open("Рибак.jpg"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoRa":
-            f = open("Рябов.jpg"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-    elif call.data == "photoC":
-            f = open("Чугай.jpg"   , 'rb')
-            bot.send_photo(call.message.chat.id, f)
-            f.close()
-
-    elif call.data == "back":
-
-        markup = types.InlineKeyboardMarkup()
-        btn_my_site1= types.InlineKeyboardButton(text='Гільчук А.В.', callback_data="G")
-        btn_my_site= types.InlineKeyboardButton(text='Кравцов О.В.', callback_data="Kr")
-        btn_my_site2= types.InlineKeyboardButton(text='Наказной П.О.', callback_data="Na")
-        btn_my_site3= types.InlineKeyboardButton(text='Парновський С.Л.', callback_data="Pa")
-        btn_my_site4= types.InlineKeyboardButton(text='Пономаренко С.М.', callback_data="Po")
-        btn_my_site5= types.InlineKeyboardButton(text='Рибак О.В.', callback_data="Ry")
-        btn_my_site6= types.InlineKeyboardButton(text='Рябов Г.В.', callback_data="Ra")
-        btn_my_site7= types.InlineKeyboardButton(text='Чугай О.Ю.', callback_data="C")
-        btn_my_site8= types.InlineKeyboardButton(text='Мулярчук М.А.', callback_data="M")
-        markup.add(btn_my_site1, btn_my_site)
-        markup.add(btn_my_site8, btn_my_site2)
-        markup.add(btn_my_site3, btn_my_site4)
-        markup.add(btn_my_site5, btn_my_site6)
-        markup.add(btn_my_site7)
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id= call.message.message_id, text = "Виберіть викладача", reply_markup = markup)
 
 
 @bot.message_handler(regexp = "Розрахункова")
