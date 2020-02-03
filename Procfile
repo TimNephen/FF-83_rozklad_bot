@@ -1,1 +1,1 @@
-worker: python FF-83_rozklad.py
+worker: python Rozklad_Bot.py
