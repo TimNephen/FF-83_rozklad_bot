@@ -4,10 +4,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from telebot import types
 import datetime
 
-#Token = "665390764:AAGu-B-QpWmcLsLLY-VS0g3UwVLY0FQyVBA"
-
-
-bot = t.TeleBot("665390764:AAE9fyGkEw7GJszVzCcuuFkmmTJlHsvFp-c")
+bot = t.TeleBot("839974408:AAHhGvFEiWVnUh3Ujr7LHAvo7JnWxq3zDEE")
 
 def google():
     scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
