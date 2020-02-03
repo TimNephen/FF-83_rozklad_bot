@@ -1,1 +1,1 @@
-worker: python Rozklad_Bot.py
+worker: python Rozklad_Bot
