@@ -1,8 +1,6 @@
-﻿import telebot as t
+import telebot as t
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 from telebot import types
-import datetime
 
 bot = t.TeleBot("665390764:AAE9fyGkEw7GJszVzCcuuFkmmTJlHsvFp-c")
 
