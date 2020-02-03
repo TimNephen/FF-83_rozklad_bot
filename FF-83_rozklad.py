@@ -4,7 +4,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from telebot import types
 import datetime
 
-bot = t.TeleBot("839974408:AAHhGvFEiWVnUh3Ujr7LHAvo7JnWxq3zDEE")
+bot = t.TeleBot("665390764:AAE9fyGkEw7GJszVzCcuuFkmmTJlHsvFp-c")
 
 @bot.message_handler(commands=["rozklad", "start"])
 def repeat_all_messages(message):
