@@ -9,12 +9,14 @@ import datetime
 
 bot = t.TeleBot("665390764:AAE9fyGkEw7GJszVzCcuuFkmmTJlHsvFp-c")
 
+#импорт таблицы с гугл диска
 def google():
     scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
     creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope )
     client = gspread.authorize(creds)
     return client.open("Домашка").sheet1
 
+#первые стартовые кнопки (далее расписаны что каждая кнопка делает)
 @bot.message_handler(commands=["rozklad", "start"])
 def repeat_all_messages(message):
     markup = types.ReplyKeyboardMarkup()
@@ -70,6 +72,7 @@ def repeat_all_messages(message):
 Парні дні  09:00-15:00
 Непарні дні 13:00-19:00""")
     
+#спимок предподавателей (в предыдущей версии было круче реализованно, писать мне что бы скинул код)
 @bot.message_handler(regexp = "Викладачі")
 def repeat_all_messages(message):
     bot.send_message(message.chat.id, """Іванова Віта Вікторівна
@@ -113,6 +116,7 @@ def func(message):
 
 #Домашка
 
+#в ссылках указание на конкретною ячейку в гугл таблице
 @bot.message_handler(regexp = "Дифрівняння")
 def func(message):
     sheet = google()
@@ -229,7 +233,7 @@ def func(message):
 
 
 
-
+# !!! сюда вписывать рассписание своей группы !!!
 @bot.message_handler(regexp = "Понеділок")
 def func2(message):
     bot.send_message(message.chat.id, """2)Оптика пр. 205-11
@@ -265,6 +269,7 @@ def func6(message):
 2)Оптика лекц. 215-11
 3)[2]Дифрівняння пр. 142-16""")
 
+#Список группы, что бы узнать вариант в РР
 @bot.message_handler(regexp = "Список групи")
 def Grupa(message):
     bot.send_message(message.chat.id, """1)Грималюк Герман Русланович
