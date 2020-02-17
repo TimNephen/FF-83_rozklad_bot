@@ -95,7 +95,7 @@ def repeat_all_messages(message):
     btn_my_site1= types.InlineKeyboardButton(text='Інформаційний канал', url='https://t.me/joinchat/AAAAAEt1o7VYZ_tV8S-hLA')
     btn_my_site2= types.InlineKeyboardButton(text='Канал Пономаренко', url='https://t.me/t_petrova')
     btn_my_site3= types.InlineKeyboardButton(text='Канал Наказного', url='https://t.me/ff81ff82')
-    btn_my_site3= types.InlineKeyboardButton(text='Канал Іванової', url='https://t.me/joinchat/AAAAAFDR4qoD12hlSdX8_Q')
+    btn_my_site4= types.InlineKeyboardButton(text='Канал Іванової', url='https://t.me/joinchat/AAAAAFDR4qoD12hlSdX8_Q')
     markup.add(btn_my_site1)
     markup.add(btn_my_site2)
     markup.add(btn_my_site3)
