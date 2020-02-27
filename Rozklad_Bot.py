@@ -149,18 +149,16 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1M5TIE1wFx7VBJJhgyRFQAgulyZbHz6O6')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[2]), reply_markup = markup)
 
 @bot.message_handler(regexp = "ТФКП")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/open?id=1kXCm5OcduKnXSK7o8PJHAcS4Lg75Epa2')
+    btn_my_site2= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1eAnYMn1E2QillBFZUJFCqIU2r8MNOvr-')
     markup.add(btn_my_site)
     markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[4]), reply_markup = markup)
@@ -169,40 +167,32 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/open?id=1gKsBEEwqgysOFu6V5Y9nI-iu0gLKrpYl')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[5]), reply_markup = markup)
 
 @bot.message_handler(regexp = "Англійська")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Підручник', url='https://drive.google.com/open?id=0B1GYLTRP36rtQzJ0RWw2ZVFoM0h3Q1QtVG5ER05Qd1RWamVB')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[6]), reply_markup = markup)
 
 @bot.message_handler(regexp = "Філософія")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1thipJINDPoDmxqKC3Dq_Pi96doEixr9i')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[7]), reply_markup = markup)
 
 @bot.message_handler(regexp = "Психологія")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1zZ11wfah-YLZlu1O5fE4rKRLE3U9bJwh')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[8]), reply_markup = markup)
 
 #Домашка
