@@ -93,13 +93,7 @@ def repeat_all_messages(message):
 def repeat_all_messages(message):
     markup = types.InlineKeyboardMarkup()
     btn_my_site1= types.InlineKeyboardButton(text='Інформаційний канал', url='https://t.me/joinchat/AAAAAEt1o7VYZ_tV8S-hLA')
-    btn_my_site2= types.InlineKeyboardButton(text='Канал Пономаренко', url='https://t.me/t_petrova')
-    btn_my_site3= types.InlineKeyboardButton(text='Канал Наказного', url='https://t.me/ff81ff82')
-    btn_my_site4= types.InlineKeyboardButton(text='Канал Іванової', url='https://t.me/joinchat/AAAAAFDR4qoD12hlSdX8_Q')
     markup.add(btn_my_site1)
-    markup.add(btn_my_site2)
-    markup.add(btn_my_site3)
-    merkup.add(btn_my_site4)
     bot.send_message(message.chat.id, "Посилання:", reply_markup = markup)
 
 @bot.message_handler(regexp = "Оголошення")
@@ -242,23 +236,24 @@ def func(message):
 # !!! сюда вписывать рассписание своей группы !!!
 @bot.message_handler(regexp = "Понеділок")
 def func2(message):
-    bot.send_message(message.chat.id, """2)Оптика пр. 205-11
+    bot.send_message(message.chat.id, """1)Теплоенергетика лекц. 201-11
+2)Оптика пр. 205-11
 3)[1]Філософія пр. 144-16
 [2]Психологія пр. 153-16
 4)ФВ""")
 
 @bot.message_handler(regexp = "Вівторок")
 def func3(message):
-    bot.send_message(message.chat.id, """1)[2] ВДЕ пр. 201-11
+    bot.send_message(message.chat.id, """
 2)ВДЕ лекц. 201-11
-3)Теплоенергетика лекц. 201-11
-4)[1]Теплоенергетика пр. 201-11
-[2]Психологія лекц. 112-7""")
+3)[2]ВДЕ пр. 201-11
+4)[2]Психологія лекц. 112-7""")
 
 @bot.message_handler(regexp = "Середа")
 def func4(message):
     bot.send_message(message.chat.id, """1)ТФКЗ лекц. 112-7
 2)[1]Дифрівняння лекц. 107-7
+[2]Теплоенергетика пр. 142-16
 3)Класична механіка лекц. 114-7
 4)Оптика л/р 308-4-1
 5)Оптика л/р 308-4-1""")
@@ -271,9 +266,9 @@ def func5(message):
 
 @bot.message_handler(regexp = "П\'ятниця")
 def func6(message):
-    bot.send_message(message.chat.id, """1)English 204-11
+    bot.send_message(message.chat.id, """1)English 143-16
 2)Оптика лекц. 215-11
-3)[2]Дифрівняння пр. 142-16""")
+3)[2]Дифрівняння пр. 201-11""")
 
 #Список группы, что бы узнать вариант в РР
 @bot.message_handler(regexp = "Список групи")
