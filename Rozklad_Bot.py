@@ -131,8 +131,8 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/open?id=1jMt5l3Tne1TvhYnumcBAnW0Cd9BMGIpy')
+    btn_my_site2= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1jKtV-7m_X871YQW5QOKCFPb47JHMKMuj')
     markup.add(btn_my_site)
     markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[0]), reply_markup = markup)
@@ -141,10 +141,8 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1rEidHOMQnPUApMDrHu91bBE4NdguW9W7')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[1]), reply_markup = markup)
 
 @bot.message_handler(regexp = "Енергетика")
