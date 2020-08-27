@@ -21,14 +21,14 @@ def google():
 def repeat_all_messages(message):
     markup = types.ReplyKeyboardMarkup()
     markup.row('Розклад', "Домашнє завдання")
-    markup.row("Розрахункова", "Інше")
+    markup.row("Номер тижня", "Інше")
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
 
 @bot.message_handler(regexp = "Назад")
 def repeat_all_messages(message):
     markup = types.ReplyKeyboardMarkup()
     markup.row('Розклад', "Домашнє завдання")
-    markup.row("Розрахункова", "Інше")
+    markup.row("Номер тижня", "Інше")
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
     print("n")
 
@@ -36,7 +36,7 @@ def repeat_all_messages(message):
 def repeat_all_messages(message):
     markup = types.ReplyKeyboardMarkup()
     markup.row('Викладачі', "Початок пар")
-    markup.row("Список групи", "Номер тижня")
+    markup.row("Список групи", "Розрахункова")
     markup.row("Додатково", "Назад")
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
     print("i")
@@ -75,19 +75,17 @@ def repeat_all_messages(message):
 #спимок предподавателей (в предыдущей версии было круче реализованно, писать мне что бы скинул код)
 @bot.message_handler(regexp = "Викладачі")
 def repeat_all_messages(message):
-    bot.send_message(message.chat.id, """Іванова Віта Вікторівна
-Бабіна Світлана Іванівна
-Москаленко Ольга Володимирівна
-Панченко Надія Анатоліївна
-Борисенко Андрій Володимирович
-Пешко Віталій Анатолійович
-Ложкін Георгій Володимирович
-Наказной Павло Олександрович
-Рябов Георгій Валентинович
-Кравцов Олег Васильович
-Пономаренко Сергій Миколайович
-Зарівна Оксана Тимофіївна
-Парновський Сергій Людомирович""")
+    bot.send_message(message.chat.id, """Жданов Валерій Іванович
+Монастирський Геннадій Євгенович
+Кохтич Людмила Михайлівна
+Кривенко Ярослав Дмитрович
+Оксьоненко Максим Петрович
+Доник Тетяна Василівна
+Катасонов Антон Анатолійович
+Медкова Ольга Миколаївна
+Гордійко Наталія Олександрівна
+Кузнєцов Микола Юрійович
+Кобушкін Олександр Петрович""")
 
 @bot.message_handler(regexp = "Корисні посилання")
 def repeat_all_messages(message):
@@ -106,18 +104,18 @@ def repeat_all_messages(message):
 @bot.message_handler(regexp = "Домашнє завдання")
 def func(message):
     markup = types.ReplyKeyboardMarkup()
-    markup.row("Оптика", "ВДЕ")
-    markup.row("Енергетика", "ТФКП")
-    markup.row("Дифрівняння", "Класична механіка")
-    markup.row("Англійська", "Філософія")
-    markup.row("Психологія", "Назад")
+    markup.row("Атомна фізика", "Теорія поля")
+    markup.row("РМФ", "Теорія ймовірностей")
+    markup.row("Обчислювальні методи", "Обробка експерименту")
+    markup.row("Англійська", "Коливання та хвилі")
+    markup.row("Назад")
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
     print("d")
 
 #Домашка
 
 #в ссылках указание на конкретною ячейку в гугл таблице
-@bot.message_handler(regexp = "Дифрівняння")
+@bot.message_handler(regexp = "Теорія ймовірностей")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -127,7 +125,7 @@ def func(message):
     markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[3]), reply_markup = markup)
 
-@bot.message_handler(regexp = "Оптика")
+@bot.message_handler(regexp = "Атомна фізика")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -137,7 +135,7 @@ def func(message):
     markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[0]), reply_markup = markup)
 
-@bot.message_handler(regexp = "ВДЕ")
+@bot.message_handler(regexp = "Теорія поля")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -145,7 +143,7 @@ def func(message):
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[1]), reply_markup = markup)
 
-@bot.message_handler(regexp = "Енергетика")
+@bot.message_handler(regexp = "РМФ")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -153,7 +151,7 @@ def func(message):
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[2]), reply_markup = markup)
 
-@bot.message_handler(regexp = "ТФКП")
+@bot.message_handler(regexp = "Обчислювальні методи")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -163,7 +161,7 @@ def func(message):
     markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[4]), reply_markup = markup)
 
-@bot.message_handler(regexp = "Класична механіка")
+@bot.message_handler(regexp = "Обробка експерименту")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -179,7 +177,7 @@ def func(message):
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[6]), reply_markup = markup)
 
-@bot.message_handler(regexp = "Філософія")
+@bot.message_handler(regexp = "Коливання та хвилі")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
@@ -187,13 +185,7 @@ def func(message):
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[7]), reply_markup = markup)
 
-@bot.message_handler(regexp = "Психологія")
-def func(message):
-    sheet = google()
-    markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1zZ11wfah-YLZlu1O5fE4rKRLE3U9bJwh')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[8]), reply_markup = markup)
+
 
 #Домашка
 
