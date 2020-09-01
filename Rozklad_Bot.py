@@ -129,17 +129,17 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/open?id=1jMt5l3Tne1TvhYnumcBAnW0Cd9BMGIpy')
-    btn_my_site2= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1jKtV-7m_X871YQW5QOKCFPb47JHMKMuj')
+    btn_my_site= types.InlineKeyboardButton(text='Канал', url='https://t.me/atomn20')
+    btn_my_site1= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1T05JObPJ_poqpUdmup8pU_if3ex-a_1p')
     markup.add(btn_my_site)
-    markup.add(btn_my_site2)
+    markup.add(btn_my_site1)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[0]), reply_markup = markup)
 
 @bot.message_handler(regexp = "Теорія поля")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1rEidHOMQnPUApMDrHu91bBE4NdguW9W7')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1c_tA8ItpEqD_o6lgcWjJKOCEwWrI1GTW')
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[1]), reply_markup = markup)
 
@@ -147,7 +147,7 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1M5TIE1wFx7VBJJhgyRFQAgulyZbHz6O6')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1JfkxsS-IehWufEka_juwIatN365OsUIb')
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[2]), reply_markup = markup)
 
@@ -155,9 +155,7 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/open?id=1kXCm5OcduKnXSK7o8PJHAcS4Lg75Epa2')
-    btn_my_site2= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1eAnYMn1E2QillBFZUJFCqIU2r8MNOvr-')
-    markup.add(btn_my_site)
+    btn_my_site2= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1veL5IoEkmcSjFVYIooRPWqhD-zeuYktC')
     markup.add(btn_my_site2)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[4]), reply_markup = markup)
 
@@ -165,7 +163,7 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/open?id=1gKsBEEwqgysOFu6V5Y9nI-iu0gLKrpYl')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1nimNZTrmYndV9fajuybi9y7YvTbdVSql')
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[5]), reply_markup = markup)
 
@@ -173,7 +171,7 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Підручник', url='https://drive.google.com/open?id=0B1GYLTRP36rtQzJ0RWw2ZVFoM0h3Q1QtVG5ER05Qd1RWamVB')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1SpWPoqGUATI-t83i6DTJ3GjPOV7Xa80s')
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[6]), reply_markup = markup)
 
@@ -181,7 +179,7 @@ def func(message):
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/folders/1thipJINDPoDmxqKC3Dq_Pi96doEixr9i')
+    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1k2c6vZea7-9juMZLvdeI3SRkO90PxKr-')
     markup.add(btn_my_site)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[7]), reply_markup = markup)
 
