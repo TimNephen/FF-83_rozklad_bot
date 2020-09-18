@@ -4,17 +4,17 @@ from oauth2client.service_account import ServiceAccountCredentials
 from telebot import types
 import datetime
 
-#Token = "665390764:AAGu-B-QpWmcLsLLY-VS0g3UwVLY0FQyVBA"
+#Token = "1266346905:AAFIssbx3Vs92xgJPplzVPuJRu2tQjxJ2z8"
 
 
-bot = t.TeleBot("665390764:AAE9fyGkEw7GJszVzCcuuFkmmTJlHsvFp-c")
+bot = t.TeleBot("1266346905:AAFIssbx3Vs92xgJPplzVPuJRu2tQjxJ2z8")
 
 #импорт таблицы с гугл диска
-def google():
-    scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope )
-    client = gspread.authorize(creds)
-    return client.open("Домашка").sheet1
+#def google():
+#    scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
+#    creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope )
+#    client = gspread.authorize(creds)
+#    return client.open("Домашка").sheet1
 
 #первые стартовые кнопки (далее расписаны что каждая кнопка делает)
 @bot.message_handler(commands=["rozklad", "start"])
@@ -60,37 +60,38 @@ def repeat_all_messages(message):
 @bot.message_handler(regexp = "Додатково")
 def repeat_all_messages(message):
     markup = types.ReplyKeyboardMarkup()
-    markup.row('Графік роботи поліклініки', "Оголошення")
+    markup.row('Куратор', "Оголошення")
     markup.row("Корисні посилання", "Повернутися")
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
 
-@bot.message_handler(regexp = "Графік роботи поліклініки")
+@bot.message_handler(regexp = "Куратор")
 def repeat_all_messages(message):
-    bot.send_message(message.chat.id, """Лікар Ширант Наталія Петрівна
-м/с Новікова Наталя Петрівна
-Кабінет 3-06
-Парні дні  09:00-15:00
-Непарні дні 13:00-19:00""")
+    bot.send_message(message.chat.id, """Кохтич Людмила Михайлівна
++380980241352""")
     
 #спимок предподавателей (в предыдущей версии было круче реализованно, писать мне что бы скинул код)
 @bot.message_handler(regexp = "Викладачі")
 def repeat_all_messages(message):
-    bot.send_message(message.chat.id, """Жданов Валерій Іванович
-Монастирський Геннадій Євгенович
-Кохтич Людмила Михайлівна
-Кривенко Ярослав Дмитрович
-Оксьоненко Максим Петрович
-Доник Тетяна Василівна
-Катасонов Антон Анатолійович
-Медкова Ольга Миколаївна
-Гордійко Наталія Олександрівна
-Кузнєцов Микола Юрійович
-Кобушкін Олександр Петрович""")
+    bot.send_message(message.chat.id, """
+    Мирошнікова Ірина Юріївна[мат.анал. пр.]
+    Загородній В\'ячеслав Васильович[мех. лекц.]
+    Кушлаба Михайло Петрович[укр.м. пр.]
+    Орєхов Олександр Арсенійович[прог. лекц.]
+    Чугай Оксана Юріївна[інгліш]
+    Іванова Віта Вікторівна[введ.в.спец.]
+    Довгошей Володимир Борисович[мех. пр./лаб.]
+    Хмельницький Микола Олександрович[алгеом лекц.]
+    Єндовицький Павло Олександрович[алгеом пр.]
+    Пономаренко Сергій Миколайович[введ.в.спец.]
+    Нечипоренко Алла Федорівна[укр.м. лекц.]
+    Южакова Ганна Олексіївна[мат.анал. лекц.]
+    Краков\'ян Максимка[прог. лаб.]
+    Кохтич Людмила Михайлівна[мех. лаб.]""")
 
 @bot.message_handler(regexp = "Корисні посилання")
 def repeat_all_messages(message):
     markup = types.InlineKeyboardMarkup()
-    btn_my_site1= types.InlineKeyboardButton(text='Інформаційний канал', url='https://t.me/joinchat/AAAAAEt1o7VYZ_tV8S-hLA')
+    btn_my_site1= types.InlineKeyboardButton(text='Інформаційний канал', url='https://t.me/Peniamin')
     markup.add(btn_my_site1)
     bot.send_message(message.chat.id, "Посилання:", reply_markup = markup)
 
@@ -104,10 +105,10 @@ def repeat_all_messages(message):
 @bot.message_handler(regexp = "Домашнє завдання")
 def func(message):
     markup = types.ReplyKeyboardMarkup()
-    markup.row("Атомна фізика", "Теорія поля")
-    markup.row("РМФ", "Теорія ймовірностей")
-    markup.row("Обчислювальні методи", "Обробка експерименту")
-    markup.row("Англійська", "Коливання та хвилі")
+    markup.row("Механіка", "Мат.анал.")
+    markup.row("Алгеом", "Укр.мова")
+    markup.row("Прога", "Введення в спец.")
+    markup.row("Англійська")
     markup.row("Назад")
     bot.send_message(message.chat.id, "Виберіть:", reply_markup = markup)
     print("d")
@@ -214,58 +215,50 @@ def func(message):
 # !!! сюда вписывать рассписание своей группы !!!
 @bot.message_handler(regexp = "Понеділок")
 def func2(message):
-    bot.send_message(message.chat.id, """1)Теорія поля лекц. 114-7
-2)[1]Теорія поля пр. 114-7""")
+    bot.send_message(message.chat.id, """
+1)Іноземна мова
+2)Мат.аналіз пр.
+3)[1]Мат.аналіз лекц.
+4)ФВ""")
 
 @bot.message_handler(regexp = "Вівторок")
 def func3(message):
     bot.send_message(message.chat.id, """
-1)Коливання та хвилі. лекц. 215-11
-2)Атомна фізика. л/р 305-1
-3)Атомна фізика. л/р 305-1
-4)Атомна фізика. пр. 203-11""")
+1)[2]Програмування лекц.
+2)Механіка лекц.
+3)Введення в спец.
+4)Механіка пр.""")
 
 @bot.message_handler(regexp = "Середа")
 def func4(message):
-    bot.send_message(message.chat.id, """1)[2]Теорймов пр. 112-7 
-2)[2]Обробка експр. лекц.
-3)Обробка експр. л/р
-4)Коливання та хвилі. пр. 157-1-16""")
+    bot.send_message(message.chat.id, """
+1)Алгебра та геометрія лекц. 
+2)Алгебра та геометрія пр.
+3)
+4)[1]Механіка лекц.
+[2]Введення в спец.""")
 
 @bot.message_handler(regexp = "Четвер")
 def func5(message):
-    bot.send_message(message.chat.id, """1)[2]РМФ пр.
-2)Обчислювальні методи. лекц
-3)Іноземна мова
-4)Обчислювальні методи. л/р""")
+    bot.send_message(message.chat.id, """
+1)Алгебра та геометрія лекц.
+2)[2] Укр.мова пр.
+3)
+4)[2] Укр.мова лекц.""")
 
 @bot.message_handler(regexp = "П\'ятниця")
 def func6(message):
-    bot.send_message(message.chat.id, """1)Теор. ймов. лекц.  116-7 
-2)РМФ лекц. 215-11
-3)Атомна фізика. лекц. 215-11
-4)Жданов конс.""")
+    bot.send_message(message.chat.id, """
+1)Мат.аналіз лекц.
+2)Програмування л/р
+3)Механіка л/р
+4)Механіка л/р""")
 
 #Список группы, что бы узнать вариант в РР
 @bot.message_handler(regexp = "Список групи")
 def Grupa(message):
-    bot.send_message(message.chat.id, """1)Грималюк Герман Русланович
-2)Єлісєєв Іван Михайлович
-3)Жидков Олександр Євгенійович
-4)Кобзар Олександр Васильович
-5)Коваль Сергій Олександрович
-6)Ковальчук Костянтин Віталійович
-7)Козловський Артур Андрійович
-8)Лантух Софія Юріївна
-9)Ланьков Богдан Сергійович
-10)Матвєєв Олександр Олексійович
-11)Пеньковий Тимофій Олександрович
-12)Петрова Тетяна Олександрівна
-13)Попівчак Богдан Петрович
-14)Сергієнко Анна Романівна
-15)Стоян Владислав Віталійович
-16)Шокун Артем Дмитрович
-17)Шуляк Антон Вікторович""")
+    bot.send_message(message.chat.id, """Пусто
+    """)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
