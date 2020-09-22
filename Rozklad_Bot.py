@@ -140,25 +140,25 @@ def func(message):
     markup = types.InlineKeyboardMarkup()
     btn_my_site= types.InlineKeyboardButton(text='Канал', url='https://t.me/nabla_love')
     markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[0]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[1]), reply_markup = markup)
 
 @bot.message_handler(regexp = "Алгеом")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[1]))
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[2]))
 
 @bot.message_handler(regexp = "Укр.мова")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[2]))
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[4]))
 
 @bot.message_handler(regexp = "Прога")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[4]))
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[3]))
 
 @bot.message_handler(regexp = "Введення в спец.")
 def func(message):
