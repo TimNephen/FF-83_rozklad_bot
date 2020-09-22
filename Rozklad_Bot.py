@@ -10,11 +10,11 @@ import datetime
 bot = t.TeleBot("1266346905:AAFIssbx3Vs92xgJPplzVPuJRu2tQjxJ2z8")
 
 #импорт таблицы с гугл диска
-#def google():
-#    scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
-#    creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope )
-#    client = gspread.authorize(creds)
-#    return client.open("Домашка").sheet1
+def google():
+    scope = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
+    creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope )
+    client = gspread.authorize(creds)
+    return client.open("Домашка").sheet1
 
 #первые стартовые кнопки (далее расписаны что каждая кнопка делает)
 @bot.message_handler(commands=["rozklad", "start"])
@@ -128,76 +128,51 @@ def func(message):
 #Домашка
 
 #в ссылках указание на конкретною ячейку в гугл таблице
-@bot.message_handler(regexp = "Теорія ймовірностей")
+@bot.message_handler(regexp = "Механіка")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Задачник', url='https://drive.google.com/file/d/121sBO7FjAaF0Vt0lv4I7TYpZDow9dITP/view')
-    btn_my_site2= types.InlineKeyboardButton(text='Розв\'язки', url='http://xn--e1avkt.xn--p1ai/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%A4%D0%B8%D0%BB%D0%B8%D0%BF%D0%BF%D0%BE%D0%B2/')
-    markup.add(btn_my_site)
-    markup.add(btn_my_site2)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[3]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[0]))
 
-@bot.message_handler(regexp = "Атомна фізика")
+@bot.message_handler(regexp = "Мат.анал.")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Канал', url='https://t.me/atomn20')
-    btn_my_site1= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1T05JObPJ_poqpUdmup8pU_if3ex-a_1p')
+    btn_my_site= types.InlineKeyboardButton(text='Канал', url='https://t.me/nabla_love')
     markup.add(btn_my_site)
-    markup.add(btn_my_site1)
     bot.send_message(message.chat.id, str(sheet.row_values(2)[0]), reply_markup = markup)
 
-@bot.message_handler(regexp = "Теорія поля")
+@bot.message_handler(regexp = "Алгеом")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1c_tA8ItpEqD_o6lgcWjJKOCEwWrI1GTW')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[1]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[1]))
 
-@bot.message_handler(regexp = "РМФ")
+@bot.message_handler(regexp = "Укр.мова")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1JfkxsS-IehWufEka_juwIatN365OsUIb')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[2]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[2]))
 
-@bot.message_handler(regexp = "Обчислювальні методи")
+@bot.message_handler(regexp = "Прога")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site2= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1veL5IoEkmcSjFVYIooRPWqhD-zeuYktC')
-    markup.add(btn_my_site2)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[4]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[4]))
 
-@bot.message_handler(regexp = "Обробка експерименту")
+@bot.message_handler(regexp = "Введення в спец.")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1nimNZTrmYndV9fajuybi9y7YvTbdVSql')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[5]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[5]))
 
 @bot.message_handler(regexp = "Англійська")
 def func(message):
     sheet = google()
     markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1SpWPoqGUATI-t83i6DTJ3GjPOV7Xa80s')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[6]), reply_markup = markup)
+    bot.send_message(message.chat.id, str(sheet.row_values(2)[6]))
 
-@bot.message_handler(regexp = "Коливання та хвилі")
-def func(message):
-    sheet = google()
-    markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Розділ на диску', url='https://drive.google.com/drive/u/0/folders/1k2c6vZea7-9juMZLvdeI3SRkO90PxKr-')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, str(sheet.row_values(2)[7]), reply_markup = markup)
-
-
-
+    
 #Домашка
 
 
