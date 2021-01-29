@@ -208,8 +208,8 @@ def func(message):
 # !!! сюда вписывать рассписание своей группы !!!
 @bot.message_handler(regexp = "Понеділок")
 def func2(message):
-    bot.send_message(message.chat.id, """1) Електродинаміка суцільних середовищ лекц. 
-2)Електродинаміка суцільних середовищ пр.
+    bot.send_message(message.chat.id, """1)ЕСС лекц. 
+2)ЕСС пр.
 3)РМФ лекц.
 4)[1]БЖД пр.
 [2]Радіофізика пр.
@@ -241,8 +241,8 @@ def func5(message):
 
 @bot.message_handler(regexp = "П\'ятниця")
 def func6(message):
-    bot.send_message(message.chat.id, """3)Трудове право лекц.
-4)Трудове право пр.""")
+    bot.send_message(message.chat.id, """3)[1]Трудове право лекц.
+4)[1]Трудове право пр.""")
 
 #Список группы, что бы узнать вариант в РР
 @bot.message_handler(regexp = "Список групи")
