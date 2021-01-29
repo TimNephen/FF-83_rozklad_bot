@@ -53,9 +53,9 @@ def repeat_all_messages(message):
 @bot.message_handler(regexp = "Номер тижня")
 def repeat_all_messages(message):
     if  (datetime.date(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day).isocalendar()[1] % 2) == 1:
-        bot.send_message(message.chat.id, "Другий тиждень")
-    else:
         bot.send_message(message.chat.id, "Перший тиждень")
+    else:
+        bot.send_message(message.chat.id, "Другий тиждень")
 
 @bot.message_handler(regexp = "Додатково")
 def repeat_all_messages(message):
