@@ -217,10 +217,11 @@ def func2(message):
     markup = types.InlineKeyboardMarkup()
     btn_my_site1= types.InlineKeyboardButton(text='ЕСС', url='https://us04web.zoom.us/j/79691215234')
     markup.add(btn_my_site1)
-
+    bot.send_message(message.chat.id, "ЕСС - лекція:", reply_markup = markup)
     markup1 = types.InlineKeyboardMarkup()
     btn_my_site2= types.InlineKeyboardButton(text='Дошка', url='https://idroo.com/board-3rCm4kxxlS')
     markup1.add(btn_my_site2)
+    bot.send_message(message.chat.id, "ЕСС - дошка:", reply_markup = markup1)
 
 @bot.message_handler(regexp = "Вівторок")
 def func3(message):
