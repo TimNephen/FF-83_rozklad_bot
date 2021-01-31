@@ -213,7 +213,7 @@ def func2(message):
 3)РМФ лекц.
 4)[1]БЖД пр.
 [2]Радіофізика пр.
-5)[1]English""", parse_mode=ParseMode.HTML)
+5)[1]English""", parse_mode='HTML')
     
 """    markup = types.InlineKeyboardMarkup()
     btn_my_site1= types.InlineKeyboardButton(text='Лекція', url='https://us04web.zoom.us/j/79691215234')
