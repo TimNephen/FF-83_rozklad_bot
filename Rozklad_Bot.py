@@ -208,12 +208,14 @@ def func(message):
 # !!! сюда вписывать рассписание своей группы !!!
 @bot.message_handler(regexp = "Понеділок")
 def func2(message):
-    bot.send_message(message.chat.id, text="""1)ЕСС <a href='https://us04web.zoom.us/j/79691215234'>лекц</a>. Пароль - 0jca2p
+    bot.send_message(message.chat.id, text="""1)ЕСС <a href='https://us04web.zoom.us/j/79691215234'>лекц</a>. 
 2)ЕСС <a href='https://idroo.com/board-3rCm4kxxlS'>пр</a>.
 3)РМФ лекц.
 4)[1]БЖД пр.
 [2]Радіофізика пр.
 5)[1]English""", parse_mode='HTML', disable_web_page_preview=True)
+    bot.send_message(message.chat.id, "ЕСС пароль:")
+    bot.send_message(message.chat.id, "0jca2p")
     
 """    markup = types.InlineKeyboardMarkup()
     btn_my_site1= types.InlineKeyboardButton(text='Лекція', url='https://us04web.zoom.us/j/79691215234')
