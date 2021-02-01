@@ -210,7 +210,7 @@ def func(message):
 def func2(message):
     bot.send_message(message.chat.id, text="""1)ЕСС <a href='https://us04web.zoom.us/j/79691215234'>лекц</a>. 
 2)ЕСС <a href='https://idroo.com/board-3rCm4kxxlS'>пр</a>.
-3)РМФ лекц.
+3)РМФ <a href='https://zoom.us/j/9882110590?pwd=VEhNb24yQ3lQWnZxWTlhVnpXN0grUT09'>лекц</a>.
 4)[1]БЖД пр.
 [2]Радіофізика пр.
 5)[1]English""", parse_mode='HTML', disable_web_page_preview=True)
